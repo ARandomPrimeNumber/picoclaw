@@ -19,7 +19,6 @@
     "voice": "语音输入",
     "newChat": "新建对话",
     "connecting": "连接中...",
-    "connectFirst": "请先启动服务以开始对话",
     "notConnected": "服务未运行，请先启动以进行对话。",
     "thinking": {
       "step1": "思考中...",
@@ -35,11 +34,18 @@
     },
     "history": "历史记录",
     "noHistory": "暂无对话历史",
+    "loadingMore": "加载更多...",
+    "deleteSession": "删除会话",
     "messagesCount": "{{count}} 条消息",
     "noModel": "选择模型",
-    "setupModel": {
-      "title": "尚未配置模型",
-      "description": "请先配置至少一个带有 API Key 的 AI 模型，才能开始对话。"
+    "empty": {
+      "noConfiguredModel": "尚未配置模型",
+      "noConfiguredModelDescription": "请先配置至少一个带有 API Key 的 AI 模型，才能开始对话。",
+      "goToModels": "去模型页配置",
+      "noSelectedModel": "尚未设置模型",
+      "noSelectedModelDescription": "您已配置模型，但尚未设置默认模型。请选择一个模型后开始对话",
+      "notRunning": "服务尚未运行",
+      "notRunningDescription": "请先启动网关服务后再开始对话，可点击顶部栏中的「启动服务」按钮。"
     },
     "modelGroup": {
       "apikey": "API Key",
