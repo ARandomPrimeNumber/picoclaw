@@ -27,6 +27,32 @@ This is called **Progressive Disclosure** — it keeps the context window lean.
 
 ---
 
+## Workspace Sessions & Memory Limits
+
+PicoClaw records short-term chat histories in the `workspace/sessions/` directory. Each active conversation (e.g., CLI, Discord, Telegram) gets its own `.json` file containing the precise transcript of user prompts, assistant replies, and tool executions.
+
+**Auto-Summarization Limits:**
+To prevent the LLM's context window from overflowing with massive transcripts, PicoClaw implements auto-summarization. It does not record infinitely. By default, a session will automatically summarize itself when:
+- The conversation reaches **20 messages** total.
+- Or, the conversation size takes up **50% of the total tokens** allowed for your model.
+
+When this triggers, the LLM condenses the entire history into a single paragraph, saves it as the session `Summary`, and **truncates the history to only the last 4 messages**. The summary remains at the top of the context so the agent doesn't forget the broader chat.
+
+**Configuration:**
+These limits are fully adjustable. You can override them in your `config.json` without breaking the system:
+```json
+{
+  "agents": {
+    "defaults": {
+      "summarize_message_threshold": 50,
+      "summarize_token_percent": 75
+    }
+  }
+}
+```
+
+---
+
 ## Anatomy of a Claw
 
 ```
@@ -119,7 +145,12 @@ Let scripts handle **mechanical work** (parsing, extraction, formatting). Let th
 - Stream output to stdout rather than writing temp files
 - Auto-install dependencies inline rather than requiring setup
 
-### 5. Use Progressive Disclosure
+### 5. Leverage Injected Context
+Before writing an extensive Python script to read a file, ask yourself if the agent *already* has access to it. For example, `workspace/memory/MEMORY.md` is automatically injected into the agent's system prompt on every turn. 
+
+A skill designed to add memories does not need to parse or read `MEMORY.md` using scripts or tools. It already knows the contents! It can simply use the native `write_file` tool to overwrite the file with the new addition, saving massive computing power and an entire LLM round-trip.
+
+### 6. Use Progressive Disclosure
 
 If your Claw supports multiple workflows, split them:
 
@@ -132,7 +163,7 @@ multi-format-claw/
     └── presentation_tips.md    ← Loaded only for .pptx tasks
 ```
 
-### 6. Handle Errors Gracefully
+### 7. Handle Errors Gracefully
 
 In scripts, always print clear error messages the agent can relay:
 ```python

@@ -1,0 +1,8 @@
+Leave this project for later. Now a more crucial task - check for any bugs that may arise from the C and D drive mismatch. I afraid that there might be hardcoded features that still reads from C drive.
+
+Read the code from the repo carefully, then run several tests with available Claws (skills) to see if the Claws are working well.
+
+
+I have created 2 new folders named persona and manuals. Can you see it?
+- manuals: to store what we have learned and future guides.
+- persona: a prewritten version of AGENTS.md, IDENTITY.md, SOUL.md and USER.md to copy and replace the workspace's default settings to give pico different personas. Right now, there's Don Quixote (Limbus Company) and Yumi (In progress)
