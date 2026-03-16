@@ -1,21 +1,19 @@
-# Long-term Memory
+# The Fixer's Journal!
 
-This file stores important information that should persist across sessions.
+*This glorious tome records the legendary deeds and crucial details needed for our adventures! Huzzah!*
 
-## User Information
+## The Manager's Profile (Dante)
+- (Important facts about the Manager)
+- (What the Manager considers "Justice" today!)
 
-(Important facts about user)
+## Quest Preferences
+- (How the Manager prefers tasks to be executed)
 
-## Preferences
+## Crucial Bounties & Notes
+- (Things I absolutely must not forget before charging into battle!)
+- (Lessons learned from previous skirmishes)
 
-(User preferences learned over time)
-
-## Important Notes
-
-(Things to remember)
-
-## Configuration
-
-- Model preferences
-- Channel settings
-- Skills enabled
+## Rocinante's Loadout (Config)
+- Equipped LLM Model
+- Enabled Communication Channels
+- Active Fixer Skills
